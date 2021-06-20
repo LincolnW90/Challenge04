@@ -4,26 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Java Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <header>
-        <!-- view high score link -->
-        <button type="button">View high scores</button>
-        <!-- timer location -->
-        <p id="timer"></p>
+    <!-- timer and highscores bar -->
+    <header class="row pt-2 bg-dark text-white">
+        <!-- high score anchor -->
+        <div class="col-10 text-left pl-5">
+            <a href="#" id="highscores">View high scores</a>
+        </div>
+        <!-- timer -->
+        <div id="timer" class="col-2 text-left">
+            <p>Time remaining: </p> <p id="timeleft"></p>
+        </div>
     </header>
+    <!-- quiz using display manipulation to make 'slides' for the questions -->
+    <div id="quizcontainer" class="row">
+        <!-- left border -->
+        <div class="col-3"></div>
+        <!-- slide showing when site opens -->
+        <div id="frontpage" class="col text-center">
+            <h1>Welcome to the Javascript Code Quiz!!</h1>
+            <h2 class="text-muted">See how quickly you can finish the quiz and then compare your score to others</h2>
+            <ul class="text-muted text-left">
+                <li>You have 30 seconds to complete the quiz! 😎</li>
+                <li>Every wrong answer lowers the timer by 5 seconds 😢</li>
+                <li>You may not return to previous questions 😲</li>
+                <li>When you finish all the questions, or the time runs out, enter your initials to save your score!</li>
+            </ul>
+            <button class="pl-3 pr-3">Start Quiz!!!</button>
+        </div>
 
-    <main>
-        <div class="container">
-        <!-- welcome line/questions here -->
-        <h1 class="maintext"></h1>
+        <!-- questions and answers slide -->
+        <div class="col text-center" style="display: none;">
 
         </div>
 
+        <!-- right border -->
+        <div class="col-3"></div>
 
-    </main>
+    </div>
+
+
+
+
+
+
+
+    <!-- script sources -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./scripts.js"></script>
 </body>
 </html>
