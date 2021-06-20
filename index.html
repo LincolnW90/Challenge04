@@ -10,14 +10,14 @@
 </head>
 <body>
     <!-- timer and highscores bar -->
-    <header class="row pt-2 bg-dark text-white">
+    <header class="row pt-3 pb-3 bg-dark text-white">
         <!-- high score anchor -->
         <div class="col-10 text-left pl-5">
             <a href="#" id="highscores">View high scores</a>
         </div>
         <!-- timer -->
         <div id="timer" class="col-2 text-left">
-            <p>Time remaining: </p> <p id="timeleft"></p>
+            <p></p>
         </div>
     </header>
     <!-- quiz using display manipulation to make 'slides' for the questions -->
@@ -25,7 +25,7 @@
         <!-- left border -->
         <div class="col-3"></div>
         <!-- slide showing when site opens -->
-        <div id="frontpage" class="col text-center">
+        <div id="frontpage" class="col pt-5 text-center" style="display: none;">
             <h1>Welcome to the Javascript Code Quiz!!</h1>
             <h2 class="text-muted">See how quickly you can finish the quiz and then compare your score to others</h2>
             <ul class="text-muted text-left">
@@ -38,7 +38,26 @@
         </div>
 
         <!-- questions and answers slide -->
-        <div class="col text-center" style="display: none;">
+        <div id="questions-answers" class="col text-center pt-5" style="display: none;">
+            <!-- current question -->
+            <p id="current-question" class="">****Question Here****</p>
+            <!-- container for answers -->
+            <div id="answer-container" class="col">
+                <button class="btn btn-primary m-2" id="answer1"></button><br>
+                <button class="btn btn-primary m-2" id="answer2"></button><br>
+                <button class="btn btn-primary m-2" id="answer3"></button><br>
+                <button class="btn btn-primary m-2" id="answer4"></button>
+            </div>
+            <!-- previous answer check -->
+            <div id="previous-answer" class="col border-top border-dark mt-5">
+                <p id="answer-check" class="text-muted">****Previous question right/wrong****</p>
+            </div>
+        </div>
+
+        <!-- high score slide -->
+        <div id="scores" class="col text-center">
+            <h3 class="border-bottom">High Scores</h3>
+            <div id="high-scores" class="list-group"></div>
 
         </div>
 
