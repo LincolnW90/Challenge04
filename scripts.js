@@ -44,11 +44,14 @@ var startButton = document.getElementById("startBtn");
 var frontpage = document.getElementById("frontpage");
 var quizpage = document.getElementById("questions-answers");
 var scorepage = document.getElementById("scores");
+var summary = document.getElementById("summary")
 var welcometitle = document.getElementById("welcome");
 var quiztime = 60;
 
 quizpage.classList.add('hidden');
-scorepage.classList.add('hidden')
+summarypage.classlist.add('hidden');
+scorepage.classList.add('hidden');
+
 // timer
 function countdown(){
     setInterval(function(){
@@ -60,6 +63,12 @@ function countdown(){
         }
     }, 1000);
 }
+
+// game over code
+function gameover(){
+
+}
+
 
 
 function startquiz(){
