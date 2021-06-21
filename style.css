@@ -11,3 +11,17 @@
     font-size: 40px;
     font-weight: bold;
 }
+.hidden{
+    display: none;
+}
+
+a{
+    color: white;
+}
+#current-question{
+    font-size: 40px;
+}
+.btn{
+    min-width: 15%;
+    min-height: 30px;
+}
