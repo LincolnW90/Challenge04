@@ -3,37 +3,37 @@ const questions = [
     {
         question:'1###',
         pickedanswer:['1.###','2.###','3.###','4.###'],
-        realanswer:'1.###'
+        answer:'1.###'
     },
     {
         question:'2###',
         pickedanswer:['1.###','2.###','3.###','4.###'],
-        realanswer:'1.###'
+        answer:'1.###'
     },
     {
         question:'3###',
         pickedanswer:['1.###','2.###','3.###','4.###'],
-        realanswer:'1.###'
+        answer:'1.###'
     },
     {
         question:'4###',
         pickedanswer:['1.###','2.###','3.###','4.###'],
-        realanswer:'1.###'
+        answer:'1.###'
     },
     {
         question:'5###',
         pickedanswer:['1.###','2.###','3.###','4.###'],
-        realanswer:'1.###'
+        answer:'1.###'
     },
     {
         question:'6###',
         pickedanswer:['1.###','2.###','3.###','4.###'],
-        realanswer:'1.###'
+        answer:'1.###'
     },
     {
         question:'7###',
         pickedanswer:['1.###','2.###','3.###','4.###'],
-        realanswer:'1.###'
+        answer:'1.###'
     },
     
 ];
@@ -56,6 +56,7 @@ var answerBtn4 = document.getElementById('answer4');
 var previousquestioncheck = document.getElementById('answer-check');
 // quiz over/summary page vars
 var gameoverpage = document.getElementById('summary');
+var finalscore = document.getElementById('finalscore');
 var playerinitials = document.getElementById('initials-input');
 var submitBtn = document.getElementById('submitBtn');
 // High Score page vars
@@ -70,7 +71,7 @@ scorepage.classList.add('hidden');
 
 // quiz timer -done
 function quiztimer(){
-    var timeremaining = 1;
+    var timeremaining = 15;
     var timeInterval = setInterval(function(){
         if(timeremaining>0){
             timer.textContent = 'Remaining Time: ' + timeremaining + '/s';
@@ -85,15 +86,35 @@ function quiztimer(){
 
 // quiz itself
 var correctanswers = 0;
+var questionIndex = 0;
 function quiz(){
-
-
+    currentquestion.textContent = questions[questionIndex].question;
+    answerBtn1.textContent = questions[questionIndex].pickedanswer[0];
+    answerBtn2.textContent = questions[questionIndex].pickedanswer[1];
+    answerBtn3.textContent = questions[questionIndex].pickedanswer[2];
+    answerBtn4.textContent = questions[questionIndex].pickedanswer[3];
 }
+function checkanswer1(){
+    var selectedanswer = '';
+        selectedanswer = answerBtn1.textContent;
+        if(selectedanswer === questions[questionIndex].answer[questionIndex]){
+            correctanswers++;
+            questionIndex++;
+            previousquestioncheck.textContent = 'That was correct!';
+            answerBtn1.textContent = '';
+            answerBtn2.textContent = '';
+            answerBtn3.textContent = '';
+            answerBtn4.textContent = '';
+            quiz();
+        } else{
+            questionIndex++;
+            previousquestioncheck.textContent = 'That was Incorrect';
+            quiz();
+        }
+    };
 
-// check answer
-function checkanswer(){
 
-}
+
 
 // gameover/summary
 function gameover(){
@@ -101,12 +122,13 @@ function gameover(){
     questionpage.classList.add('hidden');
     gameoverpage.classList.remove('hidden');
     scorepage.classList.add('hidden');
-
+    // display score
+    finalscore.textContent = 'You scored ' + correctanswers + ' points!';
 }
 
 // submit score
 function submitscore(){
-
+    
 }
 
 // high scores shown
@@ -131,8 +153,8 @@ function startquiz(){
 
 // event listeners for buttons
 startBtn.addEventListener('click', startquiz);
-answerBtn1.addEventListener('click', checkanswer);
-answerBtn2.addEventListener('click', checkanswer);
-answerBtn3.addEventListener('click', checkanswer);
-answerBtn4.addEventListener('click', checkanswer);
+answerBtn1.addEventListener('click', checkanswer1);
+answerBtn2.addEventListener('click', checkanswer2);
+answerBtn3.addEventListener('click', checkanswer3);
+answerBtn4.addEventListener('click', checkanswer4);
 submitBtn.addEventListener('click', submitscore);
