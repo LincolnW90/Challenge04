@@ -1,166 +1,138 @@
 // questions array
 const questions = [
     {
-        question:'',
+        question:'1###',
         pickedanswer:['1.###','2.###','3.###','4.###'],
         realanswer:'1.###'
     },
     {
-        question:'',
+        question:'2###',
         pickedanswer:['1.###','2.###','3.###','4.###'],
         realanswer:'1.###'
     },
     {
-        question:'',
+        question:'3###',
         pickedanswer:['1.###','2.###','3.###','4.###'],
         realanswer:'1.###'
     },
     {
-        question:'',
+        question:'4###',
         pickedanswer:['1.###','2.###','3.###','4.###'],
         realanswer:'1.###'
     },
     {
-        question:'',
+        question:'5###',
         pickedanswer:['1.###','2.###','3.###','4.###'],
         realanswer:'1.###'
     },
     {
-        question:'',
+        question:'6###',
         pickedanswer:['1.###','2.###','3.###','4.###'],
         realanswer:'1.###'
     },
     {
-        question:'',
+        question:'7###',
         pickedanswer:['1.###','2.###','3.###','4.###'],
         realanswer:'1.###'
     },
     
 ];
 var questionsremaining = questions.length;
-var timer = document.getElementById("timer")
-var currentscore = 0;
-var finalscore = document.getElementById("finalscore");
-var startButton = document.getElementById("startBtn");
-var frontpage = document.getElementById("frontpage");
-var quizpage = document.getElementById("questions-answers");
-var scores = document.getElementById("scores");
+    console.log(questions.length);
 
-var scoresBtn = document.getElementById("highscores");
-var highscoresBtn = document.getElementById("scoreBtn")
-var submitBtn = document.getElementById("initials-input");
-var summary = document.getElementById("summary");
-var welcometitle = document.getElementById("welcome");
-var quiztime = 5;
+// header variables
+var highscoresBtn = document.getElementById(highscoresBtn);
+var timer = document.getElementById("timer");
+// welcome page variables
+var welcomepage = document.getElementById('welcomepage');
+var startBtn = document.getElementById('startBtn');
+// question page variables
+var questionpage = document.getElementById('questions-answers');
+var currentquestion = document.getElementById('current-question');
+var answerBtn1 = document.getElementById('answer1');
+var answerBtn2 = document.getElementById('answer2');
+var answerBtn3 = document.getElementById('answer3');
+var answerBtn4 = document.getElementById('answer4');
+var previousquestioncheck = document.getElementById('answer-check');
+// quiz over/summary page vars
+var gameoverpage = document.getElementById('summary');
+var playerinitials = document.getElementById('initials-input');
+var submitBtn = document.getElementById('submitBtn');
+// High Score page vars
+var scorepage = document.getElementById('scores');
+var scoreList = document.getElementById('high-scores');
+// set hid slides initial
+welcomepage.classList.add('block');
+questionpage.classList.add('hidden');
+gameoverpage.classList.add('hidden');
+scorepage.classList.add('hidden');
 
-var scoresList = document.getElementById('high-scores');
 
-
-
-// hide slides not in use
-quizpage.classList.add('hidden');
-summary.classList.add('hidden');
-scores.classList.add('hidden');
-
-// timer
-function countdown(){
+// quiz timer -done
+function quiztimer(){
+    var timeremaining = 1;
     var timeInterval = setInterval(function(){
-        timer.textContent ='Time Remaining: ' + quiztime + '/s';
-        if (quiztime > 0){
-            quiztime = quiztime -1;
-        } else {
-            gameover();
+        if(timeremaining>0){
+            timer.textContent = 'Remaining Time: ' + timeremaining + '/s';
+            timeremaining--;
+        } else{
+            timer.textContent = 'Quiz is over';
             clearInterval(timeInterval);
+            gameover();
         }
     }, 1000);
 }
 
-// game over code
+// quiz itself
+var correctanswers = 0;
+function quiz(){
+
+
+}
+
+// check answer
+function checkanswer(){
+
+}
+
+// gameover/summary
 function gameover(){
-    quizpage.classList.add('hidden');
-    scores.classList.add('hidden');
-    frontpage.classList.add('hidden');
-    summary.classList.remove('hidden');
-    timer.textContent = "Time's up!";
-    finalscore.textContent = 'You scored ' + currentscore + ' points!';
+    welcomepage.classList.add('hidden');
+    questionpage.classList.add('hidden');
+    gameoverpage.classList.remove('hidden');
+    scorepage.classList.add('hidden');
+
 }
 
 // submit score
-var playerinitials = document.getElementById('initials-input')
 function submitscore(){
-    var oldScores = localStorage.getItem('oldScores');
-    var scoreArray = JSON.parse(oldScores);
-
-    // playerscore object
-    var playerscore = {
-        initials: playerinitials,
-        score: currentscore
-    };
-    // add score to array and save
-    scoreArray.push(playerscore);
-    var scoreArrayString = JSON.stringify(scoreArray);
-    localStorage.setItem('oldScores', scoreArrayString);
-    currentscore.textContent = '';
-    // return to main page
-    quizpage.classList.add('hidden');
-    summary.classList.add('hidden');
-    scores.classList.add('hidden');
-    frontpage.classList.remove('hidden');
 
 }
 
-// questions propogate
-var answer1 = document.getElementById("answer1");
-var answer2 = document.getElementById("answer2");
-var answer3 = document.getElementById("answer3");
-var answer4 = document.getElementById("answer4");
-var previousanswer = document.getElementById('answer-check');
+// high scores shown
+function showhighscores(){
+    welcomepage.classList.add('hidden');
+    questionpage.classList.add('hidden');
+    gameoverpage.classList.add('hidden');
+    scorepage.classList.remove('hidden');
 
-function answerquestions(){
-    frontpage.classList.add('hidden');
-    summary.classList.add('hidden');
-    scores.classList.add('hidden');
-    quizpage.classList.remove('hidden');
-
-    var currentquestion = document.getElementById('current-question');
-    currentquestion.textContent = questions[questionIndex].question;
-    answer1.textContent = questions[questionIndex].choices[0];
-    answer2.textContent = questions[questionIndex].choices[1];
-    answer3.textContent = questions[questionIndex].choices[2];
-    answer4.textContent = questions[questionIndex].choices[3];
 }
 
-// start quiz main code
+
+// start quiz function
 function startquiz(){
-    countdown();
-    answerquestions();
-
+    quiztimer();
+    quiz();
+    welcomepage.classList.add('hidden');
+    questionpage.classList.remove('hidden');
+    gameoverpage.classList.add('hidden');
+    scorepage.classList.add('hidden');
 }
 
-// // show high scores
-function showHighScores(){
-    quizpage.classList.add('hidden');
-    summary.classList.add('hidden');
-    frontpage.classList.add('hidden');
-    scores.classList.remove('hidden');
-    // get scores from local if there
-    var oldScores = localStorage.getItem('oldScores');
-    // check if there is any in local storage
-    if (oldScores === null) {
-        return;
-    }
-    console.log(oldScores);
-
-    var savedscores = JSON.parse(oldScores);
-
-    for (i = 0; i < savedscores.length; i++) {
-        var nextHighScore = document.createElement("p");
-        nextHighScore.innerHTML = savedscores[i].initials + ": " + savedscores[i].score;
-        scoresList.appendChild(eachNewHighScore);
-    }
-}
-
-
-startButton.addEventListener("click",startquiz);
-highscoresBtn.addEventListener('click', showHighScores);
+// event listeners for buttons
+startBtn.addEventListener('click', startquiz);
+answerBtn1.addEventListener('click', checkanswer);
+answerBtn2.addEventListener('click', checkanswer);
+answerBtn3.addEventListener('click', checkanswer);
+answerBtn4.addEventListener('click', checkanswer);
 submitBtn.addEventListener('click', submitscore);
