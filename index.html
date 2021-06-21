@@ -20,8 +20,9 @@
             <p></p>
         </div>
     </header>
+
     <!-- quiz using display manipulation to make 'slides' for the questions -->
-    <div id="quizcontainer" class="row">
+    <div id="screen" class="row">
         <div id="welcomepage" class="col pt-5 text-center">
             <h1 id="welcome">Welcome to the Javascript Code Quiz!!</h1>
             <h2 class="text-muted">See how quickly you can finish the quiz and then compare your score to others</h2>
@@ -31,46 +32,40 @@
                 <li>You may not return to previous questions 😲</li>
                 <li>When you finish all the questions, or the time runs out, enter your initials to save your score!</li>
             </ul>
-            <button id="startBtn" class="pl-3 pr-3">Start Quiz!!!</button>
+            <button id="startBtn" class="pl-3 pr-3 btn-primary">Start Quiz!!!</button>
         </div>
 
-        <!-- questions and answers slide -->
-        <div id="questions-answers" class="col text-center pt-5" >
-            <!-- current question -->
-            <p id="current-question" class="">****Question Here****</p>
-            <!-- container for answers -->
-            <div id="answer-container" class="col">
+        <!-- question screen -->
+        <div id="quizContainer" class="col pt-5 text-center" style="display: none;">
+            <h1 id="current-question">Question goes here***</h1>
+            <div id="answerBtnContainer" class="col pt-2 pb-2">
+                <button id="btn1" class="btn btn-primary mt-2 mb-2"></button> <br>
+                <button id="btn2" class="btn btn-primary mt-2 mb-2"></button> <br>
+                <button id="btn3" class="btn btn-primary mt-2 mb-2"></button> <br>
+                <button id="btn4" class="btn btn-primary mt-2 mb-2"></button> <br>
+                <p id="checkanswer" class="border-top"></p>
             </div>
-            <!-- previous answer check -->
-            <!-- <div id="previous-answer" class="col border-top border-dark mt-5">
-                <p id="answer-check" class="text-muted">****Previous question right/wrong****</p>
-            </div> -->
         </div>
 
         <!-- summary slide -->
-        <div id="summary" class="col text-center">
+        <div id="summary" class="col text-center" style="display: none;">
             <h1>Quiz is over!</h1>
-            <span id="finalscore">Score goes here</span>
+            <p id="finalscore">Score goes here</p>
             <form>
-                <input id="initials-input" type="text" placeholder="Enter your initials">
+                <input id="initials-input" class="mt-2 mb-2" type="text" placeholder="Enter your initials"> <br>
                 <button id="submitBtn" class="btn btn-dark">Submit</button>
             </form>
         </div>
 
         <!-- high score slide -->
-        <div id="scores" class="col text-center" >
+        <div id="scores" class="col text-center" style="display: none;" >
             <h3 class="border-bottom">High Scores</h3>
-            <div id="high-scores" class="list-group"></div>
+            <div class="list-group col">
+                <ul id="scorelist">
+                </ul>
+            </div>
         </div>
-        
-
     </div>
-
-
-
-
-
-
 
     <!-- script sources -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
