@@ -22,13 +22,10 @@
     </header>
     <!-- quiz using display manipulation to make 'slides' for the questions -->
     <div id="quizcontainer" class="row">
-        <!-- left border -->
-        <div class="col-3"></div>
-        <!-- slide showing when site opens -->
         <div id="welcomepage" class="col pt-5 text-center">
             <h1 id="welcome">Welcome to the Javascript Code Quiz!!</h1>
             <h2 class="text-muted">See how quickly you can finish the quiz and then compare your score to others</h2>
-            <ul class="text-muted text-left">
+            <ul class="text-muted text-center">
                 <li>You have 45 seconds to complete the quiz! 😎</li>
                 <li>Every wrong answer lowers the timer by 5 seconds 😢</li>
                 <li>You may not return to previous questions 😲</li>
@@ -43,15 +40,11 @@
             <p id="current-question" class="">****Question Here****</p>
             <!-- container for answers -->
             <div id="answer-container" class="col">
-                <button class="btn btn-primary m-2" id="answer1"></button><br>
-                <button class="btn btn-primary m-2" id="answer2"></button><br>
-                <button class="btn btn-primary m-2" id="answer3"></button><br>
-                <button class="btn btn-primary m-2" id="answer4"></button>
             </div>
             <!-- previous answer check -->
-            <div id="previous-answer" class="col border-top border-dark mt-5">
+            <!-- <div id="previous-answer" class="col border-top border-dark mt-5">
                 <p id="answer-check" class="text-muted">****Previous question right/wrong****</p>
-            </div>
+            </div> -->
         </div>
 
         <!-- summary slide -->
@@ -71,8 +64,6 @@
         </div>
         
 
-        <!-- right border -->
-        <div class="col-3"></div>
     </div>
 
 
