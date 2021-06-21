@@ -25,8 +25,8 @@
         <!-- left border -->
         <div class="col-3"></div>
         <!-- slide showing when site opens -->
-        <div id="frontpage" class="col pt-5 text-center" style="display: none;">
-            <h1>Welcome to the Javascript Code Quiz!!</h1>
+        <div id="frontpage" class="col pt-5 text-center">
+            <h1 id="welcome">Welcome to the Javascript Code Quiz!!</h1>
             <h2 class="text-muted">See how quickly you can finish the quiz and then compare your score to others</h2>
             <ul class="text-muted text-left">
                 <li>You have 30 seconds to complete the quiz! 😎</li>
@@ -34,11 +34,11 @@
                 <li>You may not return to previous questions 😲</li>
                 <li>When you finish all the questions, or the time runs out, enter your initials to save your score!</li>
             </ul>
-            <button class="pl-3 pr-3">Start Quiz!!!</button>
+            <button id="startBtn" class="pl-3 pr-3">Start Quiz!!!</button>
         </div>
 
         <!-- questions and answers slide -->
-        <div id="questions-answers" class="col text-center pt-5" style="display: none;">
+        <div id="questions-answers" class="col text-center pt-5" >
             <!-- current question -->
             <p id="current-question" class="">****Question Here****</p>
             <!-- container for answers -->
@@ -55,15 +55,13 @@
         </div>
 
         <!-- high score slide -->
-        <div id="scores" class="col text-center">
+        <div id="scores" class="col text-center" >
             <h3 class="border-bottom">High Scores</h3>
             <div id="high-scores" class="list-group"></div>
-
         </div>
 
         <!-- right border -->
         <div class="col-3"></div>
-
     </div>
 
 
@@ -73,7 +71,8 @@
 
 
     <!-- script sources -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="./scripts.js"></script>
 </body>
 </html>
